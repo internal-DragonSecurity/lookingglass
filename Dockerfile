@@ -1,5 +1,5 @@
 FROM golang:1.24-alpine AS builder
-RUN apk --no-cache add git alpine-sdk
+RUN apk --no-cache add git alpine-sdk mtr
 
 WORKDIR /app
 

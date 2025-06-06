@@ -402,6 +402,7 @@ func (app *application) runHandler(w http.ResponseWriter, r *http.Request) {
 			"traceroute": {},
 			"dig":        {"+short"},
 			"whois":      {},
+			"mtr":        {"--report"},
 		}
 
 		args, ok := validCommands[form.Command]
