@@ -1,9 +1,9 @@
 package main
 
 import (
+	"log/slog"
 	"net/http"
 	"os/exec"
-	"strings"
 	"time"
 
 	"github.com/dragonsecurity/lookingglass/internal/password"
@@ -375,22 +375,65 @@ func (app *application) protected(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("This is a protected handler"))
 }
 
-func (app *application) pingHandler(w http.ResponseWriter, r *http.Request) {
-	dest := r.URL.Query().Get("target")
-
-	// Basic input validation
-	if dest == "" || strings.ContainsAny(dest, "&;|$<>") {
-		http.Error(w, "Invalid input", http.StatusBadRequest)
-		return
+func (app *application) runHandler(w http.ResponseWriter, r *http.Request) {
+	var form struct {
+		Command string `form:"command"`
+		Target  string `form:"target"`
 	}
 
-	cmd := exec.Command("ping", "-c", "4", dest)
-	output, err := cmd.CombinedOutput()
-	if err != nil {
-		http.Error(w, "Ping failed: "+err.Error(), http.StatusInternalServerError)
-		return
-	}
+	switch r.Method {
+	case http.MethodGet:
+		data := app.newTemplateData(r)
+		err := response.Page(w, http.StatusOK, data, "pages/lookingglass.tmpl")
+		if err != nil {
+			app.serverError(w, r, err)
+		}
 
-	w.Header().Set("Content-Type", "text/plain")
-	w.Write(output)
+	case http.MethodPost:
+		err := request.DecodePostForm(r, &form)
+		if err != nil {
+			slog.Error("form decode failed", "err", err)
+			app.badRequest(w, r, err)
+			return
+		}
+		// Basic input validation
+		validCommands := map[string][]string{
+			"ping":       {"-c", "4"},
+			"traceroute": {},
+			"dig":        {"+short"},
+			"whois":      {},
+		}
+
+		args, ok := validCommands[form.Command]
+		if !ok {
+			app.badRequest(w, r, err)
+			return
+		}
+
+		slog.Debug(form.Command)
+		slog.Debug(form.Target)
+		// Prevent command injection
+		if !validator.SafeHostnameOrIP(form.Target) {
+			app.badRequest(w, r, err)
+			return
+		}
+
+		// Append target to args
+		args = append(args, form.Target)
+		cmd := exec.Command(form.Command, args...)
+
+		output, err := cmd.CombinedOutput()
+		result := string(output)
+		if err != nil {
+			result += "\n\nError: " + err.Error()
+		}
+
+		data := app.newTemplateData(r)
+		data["Output"] = result
+
+		err = response.Page(w, http.StatusOK, data, "pages/lookingglass.tmpl")
+		if err != nil {
+			app.serverError(w, r, err)
+		}
+	}
 }

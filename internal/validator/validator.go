@@ -1,5 +1,7 @@
 package validator
 
+import "regexp"
+
 type Validator struct {
 	Errors      []string
 	FieldErrors map[string]string
@@ -37,4 +39,10 @@ func (v *Validator) CheckField(ok bool, key, message string) {
 	if !ok {
 		v.AddFieldError(key, message)
 	}
+}
+
+var rgxSafeHost = regexp.MustCompile(`^[a-zA-Z0-9\.-]+$`)
+
+func SafeHostnameOrIP(input string) bool {
+	return rgxSafeHost.MatchString(input)
 }

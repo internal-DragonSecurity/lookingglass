@@ -1,0 +1,30 @@
+{{define "page:title"}}Tool{{end}}
+
+{{define "page:main"}}
+<form method="POST" action="/">
+    <input type="hidden" name="csrf_token" value="{{ .CSRFToken }}">
+    <div>
+        <label for="command">Select Command:</label>
+        <select id="command" name="command" required>
+            <option value="ping">Ping</option>
+            <option value="traceroute">Traceroute</option>
+            <option value="dig">Dig</option>
+            <option value="whois">Whois</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="target">Target (IP or Hostname):</label>
+        <input type="text" id="target" name="target" required>
+    </div>
+
+    <div>
+        <button type="submit">Run</button>
+    </div>
+</form>
+
+{{ with .Output }}
+<h2>Command Output</h2>
+<pre>{{ . }}</pre>
+{{ end }}
+{{end}}

@@ -29,7 +29,7 @@ func (app *application) routes() http.Handler {
 		mux.Use(app.preventCSRF)
 		mux.Use(app.authenticate)
 
-		mux.Get("/", app.home)
+		//mux.Get("/", app.home)
 
 		mux.Group(func(mux chi.Router) {
 			mux.Use(app.requireAnonymousUser)
@@ -48,7 +48,8 @@ func (app *application) routes() http.Handler {
 
 		mux.Group(func(mux chi.Router) {
 			mux.Use(app.requireAuthenticatedUser)
-			mux.Get("/ping", app.pingHandler)
+			mux.Get("/", app.runHandler)
+			mux.Post("/", app.runHandler)
 			mux.Post("/logout", app.logout)
 		})
 	})
