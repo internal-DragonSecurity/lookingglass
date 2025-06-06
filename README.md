@@ -3,6 +3,9 @@
 Small golang to do network diagnostics
 
 ## Use the Docker image:
+
+Head over to https://ghcr.io/dragonsecurity/lookingglass to view the latest builds and their checksums
+
 ```shell
 docker pull ghcr.io/dragonsecurity/lookingglass:latest
 docker run -p 4041:4041 ghcr.io/dragonsecurity/lookingglass:latest
