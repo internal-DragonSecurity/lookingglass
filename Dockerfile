@@ -1,5 +1,5 @@
 FROM golang:1.24-alpine AS builder
-RUN apk --no-cache add git alpine-sdk mtr
+RUN apk --no-cache add git alpine-sdk
 
 WORKDIR /app
 
@@ -10,6 +10,8 @@ COPY . .
 RUN go build -o lookingglass ./cmd/web
 
 FROM alpine
+RUN apk --no-cache add mtr
+
 COPY --from=builder /app/lookingglass /lookingglass
 COPY --from=builder /app/assets /assets
 
