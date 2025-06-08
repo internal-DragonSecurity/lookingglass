@@ -10,7 +10,7 @@ COPY . .
 RUN go build -o lookingglass ./cmd/web
 
 FROM alpine
-RUN apk --no-cache add mtr
+RUN apk --no-cache add mtr bind-tools
 
 COPY --from=builder /app/lookingglass /lookingglass
 COPY --from=builder /app/assets /assets
