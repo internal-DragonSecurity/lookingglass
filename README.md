@@ -6,9 +6,11 @@ Small golang to do network diagnostics
 
 Head over to https://ghcr.io/dragonsecurity/lookingglass to view the latest builds and their checksums
 
+See https://docs.docker.com/engine/network/ for various network drivers, but this is needed to make dig (dns lookups) work
 ```shell
 docker pull ghcr.io/dragonsecurity/lookingglass:latest
-docker run -p 4041:4041 ghcr.io/dragonsecurity/lookingglass:latest
+docker network create -d bridge my-net
+docker run --network=my-net -p 4041:4041 ghcr.io/dragonsecurity/lookingglass:latest
 ```
 
 ## Build from source
