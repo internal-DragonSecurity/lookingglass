@@ -1,13 +1,4 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base"],
-  "packageRules": [],
-  "enabledManagers": ["dockerfile", "gomod"],
-  "dockerfile": {
-    "enabled": true
-  },
-  "gomod": {
-    "enabled": true
-  },
-  "schedule": ["before 6am on monday"]
+  "extends": ["github>DragonSecurity/renovate-presets"]
 }
