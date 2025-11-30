@@ -5,7 +5,7 @@ go 1.25.4
 require (
 	github.com/go-chi/chi/v5 v5.2.3
 	github.com/go-playground/form/v4 v4.3.0
-	github.com/golang-migrate/migrate/v4 v4.19.0
+	github.com/golang-migrate/migrate/v4 v4.19.1
 	github.com/gorilla/sessions v1.4.0
 	github.com/jmoiron/sqlx v1.4.0
 	github.com/justinas/nosurf v1.2.0
@@ -20,7 +20,5 @@ require (
 
 require (
 	github.com/gorilla/securecookie v1.1.2 // indirect
-	github.com/hashicorp/errwrap v1.1.0 // indirect
-	github.com/hashicorp/go-multierror v1.1.1 // indirect
 	golang.org/x/net v0.47.0 // indirect
 )
