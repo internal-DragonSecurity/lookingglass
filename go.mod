@@ -15,7 +15,7 @@ require (
 	github.com/wneessen/go-mail v0.7.2
 	golang.org/x/crypto v0.46.0
 	golang.org/x/exp v0.0.0-20251009144603-d2f985daa21b
-	golang.org/x/text v0.32.0
+	golang.org/x/text v0.33.0
 )
 
 require (
