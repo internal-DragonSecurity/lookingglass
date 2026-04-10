@@ -1,6 +1,6 @@
 module github.com/dragonsecurity/lookingglass
 
-go 1.26.1
+go 1.26.2
 
 require (
 	github.com/go-chi/chi/v5 v5.2.5
@@ -10,7 +10,7 @@ require (
 	github.com/jmoiron/sqlx v1.4.0
 	github.com/justinas/nosurf v1.2.0
 	github.com/lmittmann/tint v1.1.3
-	github.com/mattn/go-sqlite3 v1.14.40
+	github.com/mattn/go-sqlite3 v1.14.41
 	github.com/tomasen/realip v0.0.0-20180522021738-f0c99a92ddce
 	github.com/wneessen/go-mail v0.7.2
 	golang.org/x/crypto v0.49.0
