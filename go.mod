@@ -13,12 +13,12 @@ require (
 	github.com/mattn/go-sqlite3 v1.14.44
 	github.com/tomasen/realip v0.0.0-20180522021738-f0c99a92ddce
 	github.com/wneessen/go-mail v0.7.3
-	golang.org/x/crypto v0.51.0
+	golang.org/x/crypto v0.52.0
 	golang.org/x/exp v0.0.0-20251009144603-d2f985daa21b
 	golang.org/x/text v0.37.0
 )
 
 require (
 	github.com/gorilla/securecookie v1.1.2 // indirect
-	golang.org/x/net v0.53.0 // indirect
+	golang.org/x/net v0.54.0 // indirect
 )
