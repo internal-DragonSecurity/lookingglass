@@ -3,7 +3,7 @@ module github.com/dragonsecurity/lookingglass
 go 1.26.4
 
 require (
-	github.com/go-chi/chi/v5 v5.3.0
+	github.com/go-chi/chi/v5 v5.3.1
 	github.com/go-playground/form/v4 v4.3.0
 	github.com/golang-migrate/migrate/v4 v4.19.1
 	github.com/gorilla/sessions v1.4.0
