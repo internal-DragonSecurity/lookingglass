@@ -12,7 +12,7 @@ require (
 	github.com/lmittmann/tint v1.1.3
 	github.com/mattn/go-sqlite3 v1.14.47
 	github.com/tomasen/realip v0.0.0-20180522021738-f0c99a92ddce
-	github.com/wneessen/go-mail v0.7.3
+	github.com/wneessen/go-mail v0.8.0
 	golang.org/x/crypto v0.53.0
 	golang.org/x/exp v0.0.0-20251009144603-d2f985daa21b
 	golang.org/x/text v0.39.0
