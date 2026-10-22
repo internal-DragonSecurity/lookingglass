@@ -1,15 +1,15 @@
 module github.com/dragonsecurity/lookingglass
 
-go 1.27.1
+go 1.27.3
 
 require (
 	github.com/go-chi/chi/v5 v5.3.2
-	github.com/go-playground/form/v4 v4.3.0
+	github.com/go-playground/form/v4 v4.3.1
 	github.com/golang-migrate/migrate/v4 v4.19.1
 	github.com/gorilla/sessions v1.4.0
 	github.com/jmoiron/sqlx v1.4.0
 	github.com/justinas/nosurf v1.2.0
-	github.com/lmittmann/tint v1.2.0
+	github.com/lmittmann/tint v1.2.1
 	github.com/mattn/go-sqlite3 v1.14.52
 	github.com/tomasen/realip v0.0.0-20180522021738-f0c99a92ddce
 	github.com/wneessen/go-mail v0.8.1
