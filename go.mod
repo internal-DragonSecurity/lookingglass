@@ -1,24 +1,24 @@
 module github.com/dragonsecurity/lookingglass
 
-go 1.27.1
+go 1.27.4
 
 require (
 	github.com/go-chi/chi/v5 v5.3.2
-	github.com/go-playground/form/v4 v4.3.0
+	github.com/go-playground/form/v4 v4.3.1
 	github.com/golang-migrate/migrate/v4 v4.19.1
 	github.com/gorilla/sessions v1.4.0
 	github.com/jmoiron/sqlx v1.4.0
 	github.com/justinas/nosurf v1.2.0
-	github.com/lmittmann/tint v1.2.0
-	github.com/mattn/go-sqlite3 v1.14.52
+	github.com/lmittmann/tint v1.2.1
+	github.com/mattn/go-sqlite3 v1.14.53
 	github.com/tomasen/realip v0.0.0-20180522021738-f0c99a92ddce
-	github.com/wneessen/go-mail v0.8.1
-	golang.org/x/crypto v0.56.0
+	github.com/wneessen/go-mail v0.8.2
+	golang.org/x/crypto v0.58.0
 	golang.org/x/exp v0.0.0-20251009144603-d2f985daa21b
-	golang.org/x/text v0.41.0
+	golang.org/x/text v0.43.0
 )
 
 require (
 	github.com/gorilla/securecookie v1.1.2 // indirect
-	golang.org/x/net v0.57.0 // indirect
+	golang.org/x/net v0.60.0 // indirect
 )
